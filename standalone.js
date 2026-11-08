@@ -8,9 +8,27 @@ const { Gdk, Gio, GLib, Gtk } = imports.gi;
 const Cairo = imports.cairo;
 const ByteArray = imports.byteArray;
 
-// Resolve script directory and import MemoryReader
-const scriptFile = Gio.File.new_for_path(imports.system.programInvocationName);
-const scriptDir = scriptFile.get_parent() ? scriptFile.get_parent().get_path() : '.';
+// Resolve script directory (following symlinks) and import MemoryReader
+function resolveScriptDir() {
+    let path = imports.system.programInvocationName;
+    try {
+        while (GLib.file_test(path, GLib.FileTest.IS_SYMLINK)) {
+            const target = GLib.file_read_link(path);
+            if (GLib.path_is_absolute(target)) {
+                path = target;
+            } else {
+                const parent = GLib.path_get_dirname(path);
+                path = GLib.build_filenamev([parent, target]);
+            }
+        }
+    } catch (e) {
+        // Fallback to invocation path
+    }
+    const file = Gio.File.new_for_path(path);
+    return file.get_parent() ? file.get_parent().get_path() : '.';
+}
+
+const scriptDir = resolveScriptDir();
 imports.searchPath.unshift(scriptDir);
 
 const { MemoryReader } = imports.memoryReader;
@@ -778,6 +796,14 @@ class StandaloneHudApp {
     }
 }
 
-Gtk.init(null);
+if (!GLib.getenv('DISPLAY') && !GLib.getenv('WAYLAND_DISPLAY'))
+    GLib.setenv('DISPLAY', ':0', false);
+
+const [initOk] = Gtk.init_check(null);
+if (!initOk || !Gdk.Display.get_default()) {
+    printerr('memhud: Display (DISPLAY / XAUTHORITY) is not ready yet. Exiting with 1 for systemd retry.\n');
+    imports.system.exit(1);
+}
+
 new StandaloneHudApp();
 Gtk.main();

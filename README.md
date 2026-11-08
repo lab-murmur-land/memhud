@@ -5,6 +5,20 @@
 - **Author:** `lab.murmur.land`
 - **Repository:** `git@github.com:lab-murmur-land/memhud.git`
 
+## Tek Satırla Hızlı Kurulum (One-Liner)
+
+Projeyi `$HOME/.local/share/memhud` dizinine klonlayıp **GNOME Shell eklentisini** kurmak için:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/lab-murmur-land/memhud/main/install.sh | sh
+```
+
+Sadece **Systemd User Service (`memhud.service`)** kurulumunu yapmak için (`--service`):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/lab-murmur-land/memhud/main/install.sh | sh -s -- --service
+```
+
 ## Özellikler
 
 - **Gerçek Zamanlı RAM & Swap Takibi**: `/proc/meminfo` üzerinden sıfır ek yükle kullanılan/toplam/boş GB ve yüzdelik (`%`) değerler.
@@ -15,21 +29,30 @@
   - **4 Köşe (`top-start`, `top-end`, `bottom-start`, `bottom-end`) — Detaylı Kart**: Kullanılan/toplam GB ve yüzdelik görünüm.
 - **Sürükle-Bırak & Snap**: HUD'u fare ile sürükleyip bıraktığınızda en yakın kenar noktasına otomatik hizalanır ve şekil değiştirir.
 
-## Kurulum (GNOME Shell Eklentisi)
+## Manuel Kurulum
 
+Projeyi `$HOME/.local/share/memhud` dizinine klonladıktan sonra:
+
+### 1. GNOME Shell Eklentisi Kurulumu
 ```bash
 make install
 gnome-extensions enable memhud@lab.murmur.land
 ```
 
-## Bağımsız Masaüstü HUD Modu (`standalone.js`)
-
-Eklenti kurulumunun kilitli olduğu sistemlerde veya doğrudan çalıştırmak için:
-
+### 2. Systemd User Service Kurulumu (Autostart)
 ```bash
-make run
-# veya
-./standalone.js
+make install-service
 ```
 
-Durdurmak için HUD üzerindeki `×` butonuna tıklayabilir, sağ tık menüsünden **Çıkış** seçebilir veya `make stop` çalıştırabilirsiniz.
+Servis durumunu görmek veya kaldırmak için:
+```bash
+make status-service
+make uninstall-service
+```
+
+### 3. Doğrudan Çalıştırma
+```bash
+make run
+# Durdurmak için:
+make stop
+```
