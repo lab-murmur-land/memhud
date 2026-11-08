@@ -1,0 +1,174 @@
+/* Top Panel Indicator */
+.memory-hud-panel-box {
+    padding: 0 4px;
+}
+
+.memory-hud-panel-label {
+    font-family: monospace;
+    font-size: 11.5pt;
+    font-weight: 600;
+}
+
+.memory-hud-popup-stat {
+    font-family: monospace;
+    font-weight: 600;
+}
+
+/* 1. Corner Mode Floating HUD Overlay */
+.memory-hud-overlay {
+    background-color: rgba(16, 18, 24, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 225px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+/* 2. Horizontal Slim Mode (top-center, bottom-center) */
+.memory-hud-hslim-box {
+    background-color: rgba(16, 18, 24, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    padding: 3px 9px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.memory-hud-hslim-bar-bg {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 3px;
+    height: 5px;
+    width: 68px;
+}
+
+.memory-hud-hslim-swap-bg {
+    margin-left: 10px;
+}
+
+.memory-hud-hslim-bar-fill {
+    border-radius: 3px;
+    height: 5px;
+}
+
+.memory-hud-hslim-label {
+    margin-left: 5px;
+}
+
+/* 3. Vertical Slim Mode (left-center, right-center) */
+.memory-hud-vslim-box {
+    background-color: rgba(16, 18, 24, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    padding: 7px 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.memory-hud-vslim-bar-bg {
+    background-color: rgba(255, 255, 255, 0.14);
+    border-radius: 3px;
+    width: 6px;
+    height: 50px;
+}
+
+.memory-hud-vslim-swap-bg {
+    margin-top: 7px;
+}
+
+.memory-hud-vslim-bar-fill {
+    border-radius: 3px;
+    width: 6px;
+}
+
+.memory-hud-vslim-label {
+    margin-top: 3px;
+}
+
+.memory-hud-slim-free-label {
+    font-family: monospace;
+    font-size: 8pt;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Shared Corner Elements */
+.memory-hud-header {
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.memory-hud-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: rgba(160, 185, 255, 0.95);
+    letter-spacing: 1px;
+}
+
+.memory-hud-icon-btn {
+    font-size: 10pt;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 0 5px;
+    margin-left: 4px;
+    border-radius: 4px;
+}
+
+.memory-hud-icon-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.memory-hud-close-btn:hover {
+    color: #ff6b6b;
+    background-color: rgba(255, 80, 80, 0.20);
+}
+
+.memory-hud-metric-row {
+    margin-top: 4px;
+    margin-bottom: 3px;
+}
+
+.memory-hud-swap-row {
+    margin-top: 8px;
+}
+
+.memory-hud-metric-name {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    margin-right: 10px;
+}
+
+.memory-hud-metric-value {
+    font-family: monospace;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.memory-hud-bar-bg {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    height: 6px;
+    width: 195px;
+}
+
+.memory-hud-bar-fill {
+    border-radius: 4px;
+    height: 6px;
+}
+
+.memory-hud-bar-normal {
+    background-color: #38d399;
+}
+
+.memory-hud-bar-swap {
+    background-color: #5ea8ff;
+}
+
+.memory-hud-bar-warning {
+    background-color: #f6b93b;
+}
+
+.memory-hud-bar-critical {
+    background-color: #ff5252;
+}

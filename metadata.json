@@ -1,0 +1,14 @@
+{
+  "name": "memhud",
+  "description": "Top bar indicator and topmost-layer floating HUD overlay displaying RAM and Swap usage (GB and %) with 8-point screen perimeter positioning.",
+  "uuid": "memhud@lab.murmur.land",
+  "author": "lab.murmur.land",
+  "shell-version": [
+    "42",
+    "43",
+    "44"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.memory-hud",
+  "url": "https://github.com/lab-murmur-land/memhud",
+  "version": 1
+}

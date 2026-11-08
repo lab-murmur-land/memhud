@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.memory-hud" path="/org/gnome/shell/extensions/memory-hud/">
+    <key name="refresh-interval" type="i">
+      <default>2</default>
+      <range min="1" max="60"/>
+      <summary>Refresh interval in seconds</summary>
+      <description>How often memory and swap statistics are updated.</description>
+    </key>
+
+    <key name="show-hud" type="b">
+      <default>true</default>
+      <summary>Show floating HUD overlay</summary>
+      <description>Whether the topmost floating HUD overlay is visible on the screen.</description>
+    </key>
+
+    <key name="show-swap-in-panel" type="b">
+      <default>true</default>
+      <summary>Show Swap usage in top panel</summary>
+      <description>Whether Swap usage and percentage should also be displayed in the GNOME top bar.</description>
+    </key>
+
+    <key name="hud-position" type="s">
+      <default>'top-end'</default>
+      <summary>HUD perimeter position (8 points)</summary>
+      <description>One of: top-start, top-center, top-end, right-center, bottom-end, bottom-center, bottom-start, left-center.</description>
+    </key>
+
+    <key name="click-through" type="b">
+      <default>false</default>
+      <summary>Pass mouse clicks through HUD</summary>
+      <description>When enabled, mouse clicks pass through the floating HUD to windows underneath.</description>
+    </key>
+
+    <key name="hud-margin" type="i">
+      <default>14</default>
+      <range min="0" max="120"/>
+      <summary>HUD edge margin in pixels</summary>
+      <description>Distance in pixels from the screen edge for the floating HUD.</description>
+    </key>
+  </schema>
+</schemalist>
